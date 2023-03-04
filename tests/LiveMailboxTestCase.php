@@ -37,6 +37,23 @@ abstract class LiveMailboxTestCase extends TestCase {
      * @return ClientManager
      */
     final protected function getManager(): ClientManager {
+        var_dump([
+                     'host'          => $_ENV["LIVE_MAILBOX_HOST"] ?? "localhost",
+                     'port'          => $_ENV["LIVE_MAILBOX_PORT"] ?? 143,
+                     'protocol'      => 'imap', //might also use imap, [pop3 or nntp (untested)]
+                     'encryption'    => $_ENV["LIVE_MAILBOX_ENCRYPTION"] ?? false, // Supported: false, 'ssl', 'tls'
+                     'validate_cert' => $_ENV["LIVE_MAILBOX_VALIDATE_CERT"] ?? false,
+                     'username'      => $_ENV["LIVE_MAILBOX_USERNAME"] ?? "root@example.com",
+                     'password'      => $_ENV["LIVE_MAILBOX_PASSWORD"] ?? "foobar",
+                 ]);
+        var_dump([
+                     'host'          => getenv("LIVE_MAILBOX_HOST"),
+                     'port'          => getenv("LIVE_MAILBOX_PORT"),
+                     'encryption'    => getenv("LIVE_MAILBOX_ENCRYPTION"),
+                     'validate_cert' => getenv("LIVE_MAILBOX_VALIDATE_CERT"),
+                     'username'      => getenv("LIVE_MAILBOX_USERNAME"),
+                     'password'      => getenv("LIVE_MAILBOX_PASSWORD"),
+                 ]);
         if (!isset(self::$manager)) {
             self::$manager = new ClientManager([
                                                    'options' => [
