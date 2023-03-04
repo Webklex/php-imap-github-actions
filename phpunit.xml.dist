@@ -20,6 +20,7 @@
   </logging>
   <php>
     <env name="LIVE_MAILBOX" value="false"/>
+    <env name="LIVE_MAILBOX_DEBUG" value="false"/>
     <env name="LIVE_MAILBOX_HOST" value="mail.example.local"/>
     <env name="LIVE_MAILBOX_PORT" value="993"/>
     <env name="LIVE_MAILBOX_VALIDATE_CERT" value="false"/>

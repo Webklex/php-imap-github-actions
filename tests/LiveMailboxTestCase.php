@@ -39,6 +39,9 @@ abstract class LiveMailboxTestCase extends TestCase {
     final protected function getManager(): ClientManager {
         if (!isset(self::$manager)) {
             self::$manager = new ClientManager([
+                                                   'options' => [
+                                                       "debug" => $_ENV["LIVE_MAILBOX_DEBUG"] ?? false,
+                                                   ],
                                                    'accounts' => [
                                                        'default' => [
                                                            'host'          => $_ENV["LIVE_MAILBOX_HOST"] ?? "localhost",
