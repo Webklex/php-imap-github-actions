@@ -26,6 +26,7 @@ jobs:
       LIVE_MAILBOX_HOST: mail.example.local
       LIVE_MAILBOX_PORT: 993
       LIVE_MAILBOX_USERNAME: root@example.local
+      LIVE_MAILBOX_ENCRYPTION: ssl
       LIVE_MAILBOX_PASSWORD: foobar
       LIVE_MAILBOX_QUOTA_SUPPORT: true
 
